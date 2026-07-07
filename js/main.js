@@ -21,17 +21,21 @@
   window.addEventListener("scroll", onScroll, { passive: true });
 
   // Mobile nav toggle
+  // Locks background scroll while the menu is open via a CSS class (overflow
+  // + overscroll-behavior) rather than repositioning <body>, which was found
+  // to disturb the header's stacking order and hide the close button behind
+  // the menu overlay.
   function closeNav() {
     nav.classList.remove("is-open");
     navToggle.setAttribute("aria-expanded", "false");
     navToggle.setAttribute("aria-label", "Open menu");
-    document.body.style.overflow = "";
+    document.body.classList.remove("nav-locked");
   }
   function openNav() {
     nav.classList.add("is-open");
     navToggle.setAttribute("aria-expanded", "true");
     navToggle.setAttribute("aria-label", "Close menu");
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("nav-locked");
   }
   navToggle.addEventListener("click", function () {
     var isOpen = nav.classList.contains("is-open");
