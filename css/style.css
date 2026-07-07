@@ -1095,6 +1095,29 @@ section {
 .pricing__list li .fine { display: block; margin-top: 0.2rem; }
 .pricing__list-price { font-family: var(--font-display); font-size: 1.05rem; white-space: nowrap; color: var(--green); }
 
+.pricing__cards--single { max-width: 320px; }
+.pricing__card--link {
+  display: block;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background-color 0.25s var(--ease);
+}
+.pricing__card--link:hover, .pricing__card--link:focus-visible {
+  background: var(--green-deep);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(35,54,20,0.28);
+}
+.pricing__card--link:focus-visible { outline: 2px solid var(--orchard); outline-offset: 3px; }
+.pricing__card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--orchard);
+}
+.pricing__card-cta svg { transition: transform 0.25s var(--ease); }
+.pricing__card--link:hover .pricing__card-cta svg, .pricing__card--link:focus-visible .pricing__card-cta svg { transform: translateX(3px); }
+
 .detail-gallery {
   max-width: var(--max-width);
   margin: clamp(2.5rem, 6vw, 4rem) auto 0;
