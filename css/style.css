@@ -220,6 +220,7 @@ h3 { font-size: var(--size-h3); line-height: 1.2; margin-bottom: 0.75rem; }
 .brand__logo-img--green { opacity: 0; }
 
 .nav__list { display: flex; gap: 2rem; }
+.nav__list > li { position: relative; }
 .nav__list a {
   font-size: 0.92rem;
   font-weight: 500;
@@ -236,6 +237,49 @@ h3 { font-size: var(--size-h3); line-height: 1.2; margin-bottom: 0.75rem; }
   height: 2px;
   background: var(--orchard);
   transition: right 0.3s var(--ease);
+}
+
+/* Experiences sub-nav: hidden until hover/focus on desktop, where it opens
+   as a dropdown rather than sitting permanently expanded in the header.
+   Scoped to the desktop nav's own breakpoint so it doesn't fight the
+   mobile full-screen menu's own display toggle for the same element. */
+@media (min-width: 1081px) {
+  .nav__sublist {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    min-width: 200px;
+    margin-top: 0.6rem;
+    padding: 0.6rem 0;
+    background: var(--green);
+    border-radius: 10px;
+    box-shadow: 0 16px 32px rgba(35, 54, 20, 0.28);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(4px);
+    transition: opacity 0.2s var(--ease), transform 0.2s var(--ease), visibility 0.2s var(--ease);
+    z-index: 20;
+  }
+  .nav__list > li:hover .nav__sublist,
+  .nav__list > li:focus-within .nav__sublist {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .nav__sublist a {
+    display: block;
+    padding: 0.55rem 1.25rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--cream);
+    white-space: nowrap;
+    opacity: 0.85;
+  }
+  .nav__sublist a::after { display: none; }
+  .nav__sublist a:hover { opacity: 1; }
 }
 .nav__list a:hover::after { right: 0; }
 
