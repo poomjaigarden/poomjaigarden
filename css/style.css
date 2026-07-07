@@ -1029,6 +1029,72 @@ section {
 .detail-remark li { margin-bottom: 0.4rem; }
 .detail-remark li:last-child { margin-bottom: 0; }
 
+/* Pricing — cards for the two Ticketmelon-bookable tickets, a callout
+   explaining the booking/cash-balance policy, then a lighter list for the
+   remaining routes (informational; not directly bookable at their own price). */
+.pricing { margin-bottom: 2.5rem; }
+.pricing__eyebrow {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--timber);
+  margin-bottom: 0.9rem;
+}
+
+.pricing__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.pricing__card {
+  background: var(--green);
+  color: var(--cream);
+  border-radius: 14px;
+  padding: 1.5rem 1.6rem;
+}
+.pricing__card-label {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--orchard);
+  margin-bottom: 0.6rem;
+}
+.pricing__card-price {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  line-height: 1;
+  margin-bottom: 0.6rem;
+}
+.pricing__card-price span { font-size: 1.1rem; font-family: var(--font-body); opacity: 0.8; margin-left: 0.15rem; }
+.pricing__card-desc { font-size: 0.92rem; opacity: 0.9; }
+.pricing__card-desc .fine { color: var(--sand); opacity: 0.75; }
+
+.pricing__notice {
+  background: rgba(76, 175, 80, 0.12);
+  border-left: 3px solid var(--orchard);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.75rem;
+}
+.pricing__notice p { font-size: 0.92rem; line-height: 1.55; }
+.pricing__notice strong { color: var(--green); }
+
+.pricing__other-title {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--timber);
+  margin-bottom: 0.5rem;
+}
+.pricing__other-title .fine { display: block; text-transform: none; letter-spacing: normal; font-weight: 400; margin-top: 0.2rem; }
+.pricing__list { margin-bottom: 1.75rem; }
+.pricing__list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(35,54,20,0.12);
+  font-size: 0.98rem;
+}
+.pricing__list li .fine { display: block; margin-top: 0.2rem; }
+.pricing__list-price { font-family: var(--font-display); font-size: 1.05rem; white-space: nowrap; color: var(--green); }
+
 .detail-gallery {
   max-width: var(--max-width);
   margin: clamp(2.5rem, 6vw, 4rem) auto 0;
