@@ -820,6 +820,30 @@ section {
 }
 
 /* ==========================================================================
+   Floating chat button
+   ========================================================================== */
+.chat-fab {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 80;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  transition: transform 0.25s var(--ease), background-color 0.25s var(--ease);
+}
+.chat-fab:hover { transform: translateY(-3px); background: var(--green-deep); }
+@media (max-width: 640px) {
+  .chat-fab { right: 1rem; bottom: 1rem; width: 50px; height: 50px; }
+}
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -865,6 +889,10 @@ section {
 
 @media (max-width: 480px) {
   .hero__headline { max-width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .visit__media { min-height: 0; aspect-ratio: 4 / 3; }
 }
 
 /* ==========================================================================
@@ -916,6 +944,7 @@ section {
 
 .detail-section { padding: var(--section-pad) 0; background: var(--bg); }
 .detail-inner { max-width: 780px; margin: 0 auto; padding: 0 var(--gutter); }
+.detail-inner h2 { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem); line-height: 1.15; margin-bottom: 1rem; }
 .detail-inner .lead { font-size: var(--size-lead); max-width: 60ch; margin-bottom: 2rem; opacity: 0.92; }
 
 .detail-facts {
