@@ -200,6 +200,38 @@ h3 { font-size: var(--size-h3); line-height: 1.2; margin-bottom: 0.75rem; }
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+/* Scrim behind the transparent header so the cream nav stays legible over
+   bright hero photos (open sky, pale walls). Fades out once the header goes
+   solid on scroll. Sits behind the header's own children via negative
+   z-index — the transform above makes .site-header the stacking context. */
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  bottom: -2.75rem;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(24, 36, 16, 0.68) 0%, rgba(24, 36, 16, 0.4) 55%, rgba(24, 36, 16, 0) 100%);
+  transition: opacity 0.35s var(--ease);
+}
+.site-header.is-scrolled::before { opacity: 0; }
+
+/* Belt-and-braces: a soft shadow keeps the type readable even where the
+   scrim alone isn't enough (very bright, high-detail photos). */
+.site-header:not(.is-scrolled) .nav__list > li > a,
+.site-header:not(.is-scrolled) .lang-switch a,
+.site-header:not(.is-scrolled) .lang-switch__sep {
+  text-shadow: 0 1px 4px rgba(24, 36, 16, 0.6);
+}
+.site-header:not(.is-scrolled) .btn--header {
+  background: rgba(24, 36, 16, 0.3);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+.site-header:not(.is-scrolled) .btn--header:hover {
+  background: var(--cream);
+  color: var(--green);
+}
 .site-header__inner {
   max-width: var(--max-width);
   margin: 0 auto;
