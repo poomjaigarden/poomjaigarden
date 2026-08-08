@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepages -->
   <url>
     <loc>https://www.poomjaigardenbkk.com/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.poomjaigardenbkk.com/"/>
@@ -17,34 +19,113 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Boat tour (highest commercial intent) -->
   <url>
     <loc>https://www.poomjaigardenbkk.com/experiences/boat-tour.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.poomjaigardenbkk.com/experiences/boat-tour.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.poomjaigardenbkk.com/th/experiences/boat-tour.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.poomjaigardenbkk.com/experiences/boat-tour.html"/>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.poomjaigardenbkk.com/experiences/dessert-workshop.html</loc>
+    <loc>https://www.poomjaigardenbkk.com/th/experiences/boat-tour.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.poomjaigardenbkk.com/experiences/boat-tour.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.poomjaigardenbkk.com/th/experiences/boat-tour.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.poomjaigardenbkk.com/experiences/boat-tour.html"/>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://www.poomjaigardenbkk.com/experiences/tie-dye-workshop.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+
+  <!-- Coconut farm tour -->
   <url>
     <loc>https://www.poomjaigardenbkk.com/experiences/coconut-farm-tour.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.poomjaigardenbkk.com/experiences/coconut-farm-tour.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.poomjaigardenbkk.com/th/experiences/coconut-farm-tour.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.poomjaigardenbkk.com/experiences/coconut-farm-tour.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.poomjaigardenbkk.com/th/experiences/coconut-farm-tour.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.poomjaigardenbkk.com/experiences/coconut-farm-tour.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.poomjaigardenbkk.com/th/experiences/coconut-farm-tour.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.poomjaigardenbkk.com/experiences/coconut-farm-tour.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Thai dessert workshop -->
+  <url>
+    <loc>https://www.poomjaigardenbkk.com/experiences/dessert-workshop.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.poomjaigardenbkk.com/experiences/dessert-workshop.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.poomjaigardenbkk.com/th/experiences/dessert-workshop.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.poomjaigardenbkk.com/experiences/dessert-workshop.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.poomjaigardenbkk.com/th/experiences/dessert-workshop.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.poomjaigardenbkk.com/experiences/dessert-workshop.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.poomjaigardenbkk.com/th/experiences/dessert-workshop.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.poomjaigardenbkk.com/experiences/dessert-workshop.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Tie-dye workshop -->
+  <url>
+    <loc>https://www.poomjaigardenbkk.com/experiences/tie-dye-workshop.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.poomjaigardenbkk.com/experiences/tie-dye-workshop.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.poomjaigardenbkk.com/th/experiences/tie-dye-workshop.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.poomjaigardenbkk.com/experiences/tie-dye-workshop.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.poomjaigardenbkk.com/th/experiences/tie-dye-workshop.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.poomjaigardenbkk.com/experiences/tie-dye-workshop.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.poomjaigardenbkk.com/th/experiences/tie-dye-workshop.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.poomjaigardenbkk.com/experiences/tie-dye-workshop.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Garden tour -->
   <url>
     <loc>https://www.poomjaigardenbkk.com/experiences/garden-tour.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.poomjaigardenbkk.com/experiences/garden-tour.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.poomjaigardenbkk.com/th/experiences/garden-tour.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.poomjaigardenbkk.com/experiences/garden-tour.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.poomjaigardenbkk.com/experiences/natura-cafe.html</loc>
+    <loc>https://www.poomjaigardenbkk.com/th/experiences/garden-tour.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.poomjaigardenbkk.com/experiences/garden-tour.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.poomjaigardenbkk.com/th/experiences/garden-tour.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.poomjaigardenbkk.com/experiences/garden-tour.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Natura Café -->
+  <url>
+    <loc>https://www.poomjaigardenbkk.com/experiences/natura-cafe.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.poomjaigardenbkk.com/experiences/natura-cafe.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.poomjaigardenbkk.com/th/experiences/natura-cafe.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.poomjaigardenbkk.com/experiences/natura-cafe.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.poomjaigardenbkk.com/th/experiences/natura-cafe.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.poomjaigardenbkk.com/experiences/natura-cafe.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://www.poomjaigardenbkk.com/th/experiences/natura-cafe.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.poomjaigardenbkk.com/experiences/natura-cafe.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
