@@ -1105,6 +1105,233 @@ section {
 .detail-remark li { margin-bottom: 0.4rem; }
 .detail-remark li:last-child { margin-bottom: 0; }
 
+/* ==========================================================================
+   Flagship product block — the signature journey leads the page so it sets
+   the price anchor, with the shorter à-la-carte routes below it.
+   ========================================================================== */
+.flagship {
+  background: var(--green);
+  color: var(--cream);
+  border-radius: 16px;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  margin: 0 0 3rem;
+}
+.flagship__eyebrow {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--orchard);
+  margin-bottom: 0.8rem;
+}
+.flagship__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.85rem, 1.4rem + 2vw, 2.9rem);
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+.flagship__sub {
+  font-size: 1.02rem;
+  color: var(--sand);
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+.flagship__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2.5rem;
+  align-items: flex-end;
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(245, 245, 230, 0.22);
+  border-bottom: 1px solid rgba(245, 245, 230, 0.22);
+  margin-bottom: 1.5rem;
+}
+.flagship__meta > div { display: flex; flex-direction: column; gap: 0.3rem; }
+.flagship__meta dt,
+.flagship__label {
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--orchard);
+}
+.flagship__price {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 2rem + 1.6vw, 3.2rem);
+  line-height: 1;
+}
+.flagship__price span { font-family: var(--font-body); font-size: 1.1rem; opacity: 0.8; margin-left: 0.2rem; }
+.flagship__fact { font-family: var(--font-display); font-size: 1.25rem; line-height: 1.2; }
+.flagship__fact .fine { display: block; color: var(--sand); opacity: 0.7; font-family: var(--font-body); margin-top: 0.15rem; }
+.flagship p.flagship__lead { font-size: 1.05rem; line-height: 1.65; opacity: 0.92; margin-bottom: 1.75rem; max-width: 58ch; }
+.flagship .btn--light { align-self: flex-start; }
+
+/* Journey timeline */
+.journey { margin: 0 0 1.75rem; }
+.journey li {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 0 1.1rem;
+  position: relative;
+  padding-bottom: 1.15rem;
+}
+.journey li:last-child { padding-bottom: 0; }
+.journey li::before {
+  content: '';
+  position: absolute;
+  left: 5.25rem;
+  top: 0.55rem;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--orchard);
+  transform: translateX(-50%);
+}
+.journey li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 5.25rem;
+  top: 1.15rem;
+  bottom: -0.15rem;
+  width: 1px;
+  background: rgba(245, 245, 230, 0.25);
+  transform: translateX(-50%);
+}
+.journey__time {
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--sand);
+  opacity: 0.75;
+  text-align: right;
+  padding-top: 0.05rem;
+}
+.journey__what { padding-left: 0.9rem; }
+.journey__what strong { display: block; font-weight: 600; font-size: 1rem; }
+.journey__what .fine { color: var(--sand); opacity: 0.7; }
+
+/* Two-option choice cards (which stop, where to finish) */
+.choice { margin-bottom: 2.5rem; }
+.choice__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+.choice__card {
+  border: 1.5px solid rgba(35, 54, 20, 0.2);
+  border-radius: 12px;
+  padding: 1.25rem 1.35rem;
+  background: var(--white);
+}
+.choice__card h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.15rem;
+  margin-bottom: 0.35rem;
+}
+.choice__card p { font-size: 0.92rem; color: var(--timber); }
+.choice__tag {
+  display: inline-block;
+  font-size: 0.66rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--green); background: rgba(76, 175, 80, 0.16);
+  padding: 0.24rem 0.45rem; border-radius: 4px;
+  margin-bottom: 0.6rem;
+}
+
+/* Departure time chips */
+.departures { margin-bottom: 2.5rem; }
+.departures__list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.85rem; }
+.departure {
+  border: 1.5px solid rgba(35, 54, 20, 0.25);
+  border-radius: 999px;
+  padding: 0.6rem 1.15rem;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+  display: inline-flex; align-items: center; gap: 0.45rem;
+}
+.departure--sunset { border-color: var(--orchard); background: rgba(76, 175, 80, 0.1); }
+.departure__tag { font-size: 0.66rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--timber); }
+
+/* Inclusions checklist */
+.includes { margin-bottom: 2.5rem; }
+.includes__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.55rem 1.5rem;
+}
+.includes__list li {
+  display: flex; align-items: flex-start; gap: 0.5rem;
+  font-size: 0.94rem;
+}
+.includes__list svg { flex: none; margin-top: 0.28rem; color: var(--orchard); }
+
+/* Pickup / drop-off maps — each map is a self-contained card with a titled
+   header, the map itself, and the practical note underneath. */
+.maps { margin-bottom: 2.5rem; }
+.maps__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+@media (max-width: 720px) { .maps__grid { grid-template-columns: 1fr; } }
+
+.map-card {
+  border: 1px solid rgba(35, 54, 20, 0.18);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+.map-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid rgba(35, 54, 20, 0.12);
+  background: var(--sand);
+}
+.map-card__kicker {
+  display: block;
+  font-size: 0.64rem; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase;
+  color: var(--timber);
+  margin-bottom: 0.15rem;
+}
+.map-card__name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+.map-card__open {
+  flex: none;
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  font-size: 0.76rem; font-weight: 600;
+  color: var(--green);
+  border: 1px solid rgba(35, 54, 20, 0.25);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  transition: background-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+.map-card__open:hover { background: var(--green); color: var(--cream); border-color: var(--green); }
+.map-card__frame {
+  aspect-ratio: 4 / 3;
+  background: var(--sand);
+  position: relative;
+}
+.map-card__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+.map-card__note {
+  font-size: 0.85rem;
+  color: var(--timber);
+  padding: 0.85rem 1rem;
+  border-top: 1px solid rgba(35, 54, 20, 0.12);
+  margin-top: auto;
+}
+.map-card__note strong { color: var(--green); }
+
+/* Secondary à-la-carte section heading */
+.alacarte__head {
+  border-top: 1px solid rgba(35, 54, 20, 0.15);
+  padding-top: 2.25rem;
+  margin-bottom: 1.5rem;
+}
+.alacarte__head h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.7rem);
+  margin-bottom: 0.4rem;
+}
+.alacarte__head p { color: var(--timber); font-size: 0.95rem; max-width: 56ch; }
+
 /* Pricing — cards for the two Ticketmelon-bookable tickets, a callout
    explaining the booking/cash-balance policy, then a lighter list for the
    remaining routes (informational; not directly bookable at their own price). */
