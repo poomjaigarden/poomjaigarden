@@ -12,7 +12,7 @@
  *  attached. That is the number worth watching.
  * ======================================================================== */
 
-var GA_MEASUREMENT_ID = ''; // <-- paste G-XXXXXXXXXX here
+var GA_MEASUREMENT_ID = 'G-1Q1J4QB9E8'; // live
 
 (function () {
   'use strict';
@@ -96,7 +96,7 @@ var GA_MEASUREMENT_ID = ''; // <-- paste G-XXXXXXXXXX here
     return {
       configured: enabled,
       measurement_id: enabled ? GA_MEASUREMENT_ID : '(not set)',
-      events: window.dataLayer.filter(function (d) { return d && d.event; })
+      events: window.dataLayer.filter(function (d) { return d && d.event && d.payload; })
     };
   };
 })();
