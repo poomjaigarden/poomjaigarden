@@ -292,7 +292,22 @@ h3 { font-size: var(--size-h3); line-height: 1.2; margin-bottom: 0.75rem; }
     pointer-events: none;
     transform: translateX(-50%) translateY(4px);
     transition: opacity 0.2s var(--ease), transform 0.2s var(--ease), visibility 0.2s var(--ease);
+    /* Closing waits, so a brief slip off the menu does not dismiss it.
+       Opening stays instant (delay reset in the :hover rule below). */
+    transition-delay: 0.35s;
     z-index: 20;
+  }
+  /* The panel sits 0.6rem below the link, and the pointer used to cross that
+     dead space and lose hover on the way down. This invisible strip bridges
+     it, and only exists while the menu is open. */
+  .nav__list > li:hover::after,
+  .nav__list > li:focus-within::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 0.9rem;
   }
   .nav__list > li:hover .nav__sublist,
   .nav__list > li:focus-within .nav__sublist {
@@ -300,6 +315,7 @@ h3 { font-size: var(--size-h3); line-height: 1.2; margin-bottom: 0.75rem; }
     visibility: visible;
     pointer-events: auto;
     transform: translateX(-50%) translateY(0);
+    transition-delay: 0s;
   }
   .nav__sublist a {
     display: block;
@@ -435,9 +451,13 @@ section {
 @media (max-width: 680px) { .hero__controls { display: none; } }
 .hero__scrim {
   position: absolute; inset: 0;
+  /* Three layers doing different jobs: a diagonal weighted to the bottom-left
+     where the headline sits, a vertical one grounding the foot of the frame,
+     and a flat wash that darkens the photograph as a whole. */
   background:
-    linear-gradient(to top right, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.44) 34%, rgba(0,0,0,0.14) 60%, rgba(0,0,0,0) 78%),
-    linear-gradient(180deg, rgba(14,20,9,0.32) 0%, rgba(14,20,9,0.4) 30%, rgba(14,20,9,0.52) 58%, rgba(14,20,9,0.66) 100%);
+    linear-gradient(to top right, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.50) 34%, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0) 78%),
+    linear-gradient(180deg, rgba(14,20,9,0.36) 0%, rgba(14,20,9,0.44) 30%, rgba(14,20,9,0.56) 58%, rgba(14,20,9,0.70) 100%),
+    linear-gradient(rgba(14,20,9,0.16), rgba(14,20,9,0.16));
 }
 
 .hero__content {
@@ -469,14 +489,26 @@ section {
   letter-spacing: 0.01em;
 }
 
-/* Highlight boxes behind the hero text lines for legibility over any slide */
-#hero-eyebrow,
-.hero__headline,
+/* Legibility over the photography comes from layered shadows rather than
+   boxes: a tight one for edge definition, a mid one to lift the type off the
+   texture, and a wide soft one to separate it from busy areas of the image.
+   Boxes read as pasted-on rectangles; shadows let the photograph through. */
+#hero-eyebrow {
+  text-shadow:
+    0 1px 2px rgba(14, 20, 9, 0.62),
+    0 2px 10px rgba(14, 20, 9, 0.48);
+}
+.hero__headline {
+  text-shadow:
+    0 1px 2px rgba(14, 20, 9, 0.5),
+    0 3px 18px rgba(14, 20, 9, 0.46),
+    0 12px 52px rgba(14, 20, 9, 0.34);
+}
+.hero__sub,
 .hero__sub--menu {
-  width: fit-content;
-  background: rgba(14, 20, 9, 0.5);
-  padding: 0.3rem 0.85rem;
-  border-radius: 3px;
+  text-shadow:
+    0 1px 2px rgba(14, 20, 9, 0.58),
+    0 2px 14px rgba(14, 20, 9, 0.42);
 }
 #hero-eyebrow { margin-bottom: 0.85rem; }
 .hero__actions { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
