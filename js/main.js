@@ -89,6 +89,13 @@
         }, 220);
       };
 
+      // Each photograph carries its own overlay strength: a frame that is
+      // already dark behind the type does not need the same help as a bright one.
+      var setScrim = function (slide) {
+        var k = slide.getAttribute("data-scrim");
+        heroMedia.parentNode.style.setProperty("--scrim-k", k === null ? "1" : k);
+      };
+
       var showSlide = function (index) {
         slides[current].classList.remove("is-active");
         if (dots[current]) { dots[current].classList.remove("is-active"); }
@@ -96,7 +103,10 @@
         slides[current].classList.add("is-active");
         if (dots[current]) { dots[current].classList.add("is-active"); }
         setEyebrow(slides[current].getAttribute("data-eyebrow"));
+        setScrim(slides[current]);
       };
+
+      setScrim(slides[0]);
 
       var isThai = document.documentElement.lang === "th";
       var pauseLabel = isThai ? "หยุดการเปลี่ยนภาพ" : "Pause image rotation";
