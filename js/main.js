@@ -155,6 +155,13 @@
         slides.forEach(function (slide) {
           var src = slide.getAttribute("data-src");
           if (src) {
+            // srcset has to land before src, or the browser commits to the
+            // single full-size file before it ever sees the smaller options.
+            var set = slide.getAttribute("data-srcset");
+            if (set) {
+              slide.setAttribute("srcset", set);
+              slide.removeAttribute("data-srcset");
+            }
             slide.setAttribute("src", src);
             slide.removeAttribute("data-src");
           }
