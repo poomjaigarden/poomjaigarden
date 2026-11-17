@@ -1075,11 +1075,15 @@ section {
   align-items: center;
   justify-content: center;
   box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-  transition: transform 0.25s var(--ease), background-color 0.25s var(--ease);
+  transition: transform 0.25s var(--ease), background-color 0.25s var(--ease), bottom 0.3s var(--ease);
 }
 .chat-fab:hover { transform: translateY(-3px); background: var(--green-deep); }
+/* The booking bar slides in underneath this button and the two overlapped, so
+   half the Book button opened the chat instead. Step the button up over the bar. */
+body.bar-up .chat-fab { bottom: calc(1.5rem + var(--book-bar-h, 76px)); }
 @media (max-width: 640px) {
   .chat-fab { right: 1rem; bottom: 1rem; width: 50px; height: 50px; }
+  body.bar-up .chat-fab { bottom: calc(1rem + var(--book-bar-h, 76px)); }
 }
 
 /* ==========================================================================
@@ -1737,3 +1741,15 @@ section {
 .contact-row a:hover { background: var(--sand); border-color: var(--green); transform: translateY(-1px); }
 .contact-row a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 .contact-row svg { flex: none; }
+
+/* The number and the address under the buttons are reachable too, so a guest
+   whose computer has no mail app set up still has something to act on. */
+.contact-line { margin-top: 0.9rem; }
+.contact-line a {
+  color: var(--green); font-weight: 600;
+  text-decoration: underline; text-decoration-color: rgba(35,54,20,0.35);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.2s var(--ease);
+}
+.contact-line a:hover { text-decoration-color: var(--green); }
+.contact-line a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; border-radius: 2px; }

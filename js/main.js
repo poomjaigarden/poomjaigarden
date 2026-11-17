@@ -245,7 +245,11 @@
         cardOnScreen = r.top < window.innerHeight && r.bottom > 0;
       }
       var viewerOpen = lightbox && lightbox.classList.contains("is-open");
-      bookBar.classList.toggle("is-up", pastHero && !cardOnScreen && !viewerOpen);
+      var up = pastHero && !cardOnScreen && !viewerOpen;
+      bookBar.classList.toggle("is-up", up);
+      /* The chat button lives in the same corner, so it steps up over the bar. */
+      document.documentElement.style.setProperty("--book-bar-h", bookBar.offsetHeight + "px");
+      document.body.classList.toggle("bar-up", up);
     };
     window.addEventListener("scroll", syncBar, { passive: true });
     window.addEventListener("resize", syncBar);
