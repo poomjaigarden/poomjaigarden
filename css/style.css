@@ -1591,3 +1591,149 @@ section {
   .detail-gallery { grid-template-columns: 1fr; }
   .detail-hero h1 { max-width: 100%; }
 }
+
+/* ==========================================================================
+   Experience page structure
+   The detail pages were one long block with a single heading and a wall of
+   photographs sitting after the price. These components give them an outline,
+   put the photographs before the price, and keep a way to book within reach.
+   ========================================================================== */
+
+/* The facts people decide on, as one line in the hero rather than a fact
+   table pushed above the story. */
+.hero-facts {
+  display: flex; flex-wrap: wrap; gap: 0.45rem 0.9rem;
+  margin-top: 0.7rem;
+  font-family: var(--font-body); font-size: 0.95rem; color: var(--cream);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.55);
+}
+.hero-facts span { display: inline-flex; align-items: center; gap: 0.45rem; }
+.hero-facts span + span::before {
+  content: ''; width: 3px; height: 3px; border-radius: 50%;
+  background: currentColor; opacity: 0.6; margin-right: 0.45rem;
+}
+.hero-facts .req { font-weight: 700; }
+
+/* Section labels. Each answers a question a guest actually asks, which is
+   what makes a page scannable rather than merely decorated. */
+.sec-label {
+  display: block;
+  font-family: var(--font-body); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--timber);
+  margin: 2.75rem 0 0.4rem;
+}
+.detail-inner > .sec-label:first-of-type { margin-top: 1.5rem; }
+.detail-inner .sec-label + h2 { margin-top: 0; }
+
+/* A condition that must be read before the Book button, not discovered at
+   checkout. */
+.notice {
+  display: flex; gap: 0.7rem; align-items: flex-start;
+  border: 1px solid rgba(128,89,65,0.42); border-left: 3px solid var(--timber);
+  background: rgba(128,89,65,0.07); border-radius: 8px;
+  padding: 0.85rem 1.05rem; margin: 0 0 1.15rem;
+}
+.notice svg { flex: none; margin-top: 0.15rem; color: var(--timber); }
+.notice p { margin: 0; font-size: 0.93rem; }
+.notice b { font-weight: 700; }
+.notice .th { display: block; margin-top: 0.15rem; color: var(--timber); font-size: 0.9rem; }
+
+/* Gallery: a heading, one wide frame to open on, tiles that respond. */
+.gallery-head { max-width: var(--max-width); margin: 3rem auto 1rem; padding: 0 var(--gutter); }
+.gallery-head h2 { margin-bottom: 0.35rem; }
+.gallery-head p { color: var(--timber); max-width: 58ch; margin: 0; font-size: 0.95rem; }
+.detail-gallery { gap: 14px; grid-template-columns: repeat(4, 1fr); }
+.detail-gallery button {
+  padding: 0; border: 0; background: none; cursor: zoom-in; display: block;
+  border-radius: 4px; overflow: hidden; position: relative;
+}
+.detail-gallery button::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(14,20,9,0); transition: background 0.22s ease;
+}
+.detail-gallery button:hover::after,
+.detail-gallery button:focus-visible::after { background: rgba(14,20,9,0.16); }
+.detail-gallery button:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.detail-gallery img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
+.detail-gallery button:hover img { transform: scale(1.035); }
+.detail-gallery button:first-child { grid-column: 1 / -1; }
+.detail-gallery button:first-child img { aspect-ratio: 16 / 7; }
+.detail-gallery button:not(:first-child) img { aspect-ratio: 4 / 5; }
+@media (max-width: 900px) {
+  .detail-gallery { grid-template-columns: repeat(2, 1fr); }
+  .detail-gallery button:first-child img { aspect-ratio: 3 / 2; }
+}
+@media (prefers-reduced-motion: reduce) { .detail-gallery img { transition: none; } }
+
+/* Lightbox */
+.lb {
+  position: fixed; inset: 0; z-index: 90; background: rgba(10,16,7,0.93);
+  display: none; align-items: center; justify-content: center; padding: clamp(1rem,4vw,3rem);
+}
+.lb.is-open { display: flex; }
+.lb img { max-width: 100%; max-height: 82vh; object-fit: contain; border-radius: 3px; }
+.lb__cap {
+  position: absolute; left: 0; right: 0; bottom: clamp(1rem,3vw,2rem); text-align: center;
+  color: var(--cream); font-family: var(--font-body); font-size: 0.9rem;
+  padding: 0 2rem; text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+}
+.lb__x, .lb__prev, .lb__next {
+  position: absolute; background: rgba(245,245,230,0.12); border: 1px solid rgba(245,245,230,0.3);
+  color: var(--cream); border-radius: 999px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; width: 46px; height: 46px;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: background 0.2s;
+}
+.lb__x:hover, .lb__prev:hover, .lb__next:hover { background: rgba(245,245,230,0.26); }
+.lb__x { top: clamp(1rem,3vw,2rem); right: clamp(1rem,3vw,2rem); font-size: 1.3rem; line-height: 1; }
+.lb__prev { left: clamp(0.5rem,2vw,1.5rem); top: 50%; transform: translateY(-50%); }
+.lb__next { right: clamp(0.5rem,2vw,1.5rem); top: 50%; transform: translateY(-50%); }
+.lb__n {
+  position: absolute; top: clamp(1rem,3vw,2rem); left: clamp(1rem,3vw,2rem);
+  color: var(--cream); font-family: var(--font-body); font-size: 0.82rem;
+  opacity: 0.75; font-variant-numeric: tabular-nums;
+}
+
+/* Booking bar: covers the stretch of page with no price card on screen. */
+.book-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 55;
+  background: rgba(24,36,16,0.93);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(245,245,230,0.16);
+  padding: 0.7rem var(--gutter) calc(0.7rem + env(safe-area-inset-bottom));
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  transform: translateY(110%); transition: transform 0.3s var(--ease);
+}
+.book-bar.is-up { transform: translateY(0); }
+.book-bar__t { font-family: var(--font-body); color: var(--cream); line-height: 1.25; min-width: 0; margin: 0; }
+.book-bar__t b { display: block; font-size: 1.02rem; font-weight: 700; }
+.book-bar__t span { font-size: 0.78rem; opacity: 0.82; }
+.book-bar__t .req { font-weight: 700; opacity: 1; }
+.book-bar .btn { flex: none; }
+@media (prefers-reduced-motion: reduce) { .book-bar { transition: none; } }
+
+/* Map: the embed sits over a plain fallback, so a blocked or slow frame still
+   leaves the address and a way out to Maps. */
+.map-card__frame { position: relative; aspect-ratio: 16 / 10; background: var(--sand); }
+.map-card__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; z-index: 1; }
+.map-card__fallback {
+  position: absolute; inset: 0; z-index: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.5rem; text-align: center; padding: 1.5rem;
+  color: var(--timber); font-family: var(--font-body);
+}
+.map-card__fallback strong { font-family: var(--font-display); font-size: 1.05rem; color: var(--green); }
+.map-card__fallback span { font-size: 0.86rem; max-width: 34ch; }
+
+/* Ways to reach a person, for everything a booking page cannot answer. */
+.contact-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.1rem; }
+.contact-row a {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  padding: 0.6rem 1.1rem; border-radius: 999px;
+  border: 1px solid rgba(35,54,20,0.22); background: var(--white);
+  color: var(--green); font-family: var(--font-body); font-weight: 600; font-size: 0.92rem;
+  min-height: 44px;
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.contact-row a:hover { background: var(--sand); border-color: var(--green); transform: translateY(-1px); }
+.contact-row a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.contact-row svg { flex: none; }

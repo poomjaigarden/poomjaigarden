@@ -175,4 +175,81 @@
       }
     }
   }
+
+  /* ------------------------------------------------------------------
+     Experience page: gallery lightbox and the booking bar.
+     Both are guarded, so pages without a gallery or without a price are
+     unaffected and nothing here runs on the homepage.
+     ------------------------------------------------------------------ */
+  var gallery = document.querySelector(".detail-gallery");
+  if (gallery && gallery.querySelector("button")) {
+    var shots = [].slice.call(gallery.querySelectorAll("img")),
+        box = document.getElementById("lightbox");
+
+    if (box) {
+      var bigImg = box.querySelector(".lb__img"),
+          bigCap = box.querySelector(".lb__cap"),
+          bigNum = box.querySelector(".lb__n"),
+          at = 0,
+          opener = null;
+
+      var show = function (i) {
+        at = (i + shots.length) % shots.length;
+        // the full-size file, not the grid thumbnail
+        bigImg.src = shots[at].getAttribute("data-full") || shots[at].src;
+        bigImg.alt = shots[at].alt;
+        bigCap.textContent = shots[at].alt;
+        bigNum.textContent = (at + 1) + " / " + shots.length;
+      };
+      var openBox = function (i, btn) {
+        opener = btn;
+        show(i);
+        box.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+        box.querySelector(".lb__x").focus();
+      };
+      var closeBox = function () {
+        box.classList.remove("is-open");
+        document.body.style.overflow = "";
+        if (opener) { opener.focus(); }
+      };
+
+      [].forEach.call(gallery.querySelectorAll("button"), function (b, i) {
+        b.addEventListener("click", function () { openBox(i, b); });
+      });
+      box.querySelector(".lb__x").addEventListener("click", closeBox);
+      box.querySelector(".lb__prev").addEventListener("click", function () { show(at - 1); });
+      box.querySelector(".lb__next").addEventListener("click", function () { show(at + 1); });
+      box.addEventListener("click", function (e) { if (e.target === box) { closeBox(); } });
+      document.addEventListener("keydown", function (e) {
+        if (!box.classList.contains("is-open")) { return; }
+        if (e.key === "Escape") { closeBox(); }
+        if (e.key === "ArrowLeft") { show(at - 1); }
+        if (e.key === "ArrowRight") { show(at + 1); }
+      });
+    }
+  }
+
+  var bookBar = document.querySelector(".book-bar");
+  if (bookBar) {
+    var priceCard = document.querySelector(".pricing__card"),
+        detailHero = document.querySelector(".detail-hero"),
+        lightbox = document.getElementById("lightbox");
+
+    var syncBar = function () {
+      if (!detailHero) { return; }
+      var pastHero = window.scrollY > detailHero.offsetHeight * 0.9;
+      var cardOnScreen = false;
+      if (priceCard) {
+        var r = priceCard.getBoundingClientRect();
+        cardOnScreen = r.top < window.innerHeight && r.bottom > 0;
+      }
+      var viewerOpen = lightbox && lightbox.classList.contains("is-open");
+      bookBar.classList.toggle("is-up", pastHero && !cardOnScreen && !viewerOpen);
+    };
+    window.addEventListener("scroll", syncBar, { passive: true });
+    window.addEventListener("resize", syncBar);
+    syncBar();
+  }
+
 })();
